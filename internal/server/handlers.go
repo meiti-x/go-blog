@@ -1,16 +1,20 @@
 package server
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/meiti-x/go-blog/internal/blog/delivery"
 )
 
-// Map news routes
-func (s *Server) MapNewsRoutes(postsGroup *gin.Engine) error {
-	v1 := postsGroup.Group("/api/v1")
+// MapRoutes for mapping all routes
+func (s *Server) MapRoutes(g *gin.Engine) error {
+	// route init
+	v1 := g.Group("/api")
 
-	v1.GET("/posts", func(context *gin.Context) {
-		fmt.Println("Getting posts...")
-	})
+	// blog routes
+	blogHandlers := delivery.NewBlogsHandlers()
+	blogGroup := v1.Group("/v1/blogs")
+	delivery.MapBlogRoutes(blogGroup, blogHandlers)
+
+	// auth routes
 	return nil
 }

@@ -21,7 +21,7 @@ func NewServer(cfgFile *config.Config) *Server {
 func (s *Server) Run() error {
 	r := gin.Default()
 
-	if err := s.MapNewsRoutes(r); err != nil {
+	if err := s.MapRoutes(r); err != nil {
 		return err
 	}
 	r.GET("/", func(c *gin.Context) {

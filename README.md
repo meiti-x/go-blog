@@ -1,10 +1,15 @@
-1. create get handler
-2. create get all handler
-3. create post handler
-4. create patch handler
-5. connect db postgres
-6. initialize gorm
-7. add logger
-8. add authentication(get,post,patch)
+1. **Initialize Project & Set Up Basic CRUD**
+2. **Set Up Clean Folder Structure**
+3. **Connect to PostgreSQL & Implement CRUD**
+4. **Add Configuration Management with Viper**
+5. **Add Validation to Requests**
+6. **Add Logging with Logrus**
+7. **Add Hot Reload (Optional)**
+8. **Add API Documentation with Swagger**
+9. **Add Tracing with Jaeger**
+10. **Implement Linters & Git Hooks**
+11. **Set Up GitHub Actions CI**
+12. **Add Monitoring with Prometheus & Grafana**
+13. **Dockerize the Project**
 
 miro link https://miro.com/app/board/uXjVLeUTz-I=/

@@ -1,8 +1,8 @@
-package posts
+package blog
 
 import "github.com/gin-gonic/gin"
 
-// Posts HTTP Handlers interface
+// Blog HTTP Handlers interface
 type Handlers interface {
 	Create() gin.HandlerFunc
 	Update() gin.HandlerFunc
