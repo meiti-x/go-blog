@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"fmt"
 	"github.com/meiti-x/go-blog/config"
 	"github.com/meiti-x/go-blog/internal/server"
 	"github.com/meiti-x/go-blog/pkg/utils"
@@ -15,7 +14,12 @@ func Execute() {
 	if err != nil {
 		log.Fatal("Could not read config file: ", err)
 	}
-	fmt.Println(cfgFile)
-	s := server.NewServer()
+
+	cfg, err := config.ParseConfig(cfgFile)
+	if err != nil {
+		log.Fatal("Could not read config file: ", err)
+	}
+
+	s := server.NewServer(cfg)
 	s.Run()
 }
