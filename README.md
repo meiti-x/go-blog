@@ -1,5 +1,6 @@
 1. **Initialize Project & Set Up Basic CRUD**
 2. **Set Up Clean Folder Structure**
+   1. add usecase and repository after using postgresql
 3. **Connect to PostgreSQL & Implement CRUD**
 4. **Add Configuration Management with Viper**
 5. **Add Validation to Requests**

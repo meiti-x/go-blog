@@ -11,3 +11,12 @@ server:
   CtxDefaultTimeout: 12
   CSRF: true
   Debug: false
+
+postgres:
+  PostgresqlHost: localhost
+  PostgresqlPort: 5432
+  PostgresqlUser: postgres
+  PostgresqlPassword: postgres
+  PostgresqlDbname: go-blog
+  PostgresqlSslmode: disable
+  PgDriver: postgres

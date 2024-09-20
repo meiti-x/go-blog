@@ -9,8 +9,8 @@ import (
 
 // App config struct
 type Config struct {
-	Server ServerConfig
-	//Postgres PostgresConfig
+	Server   ServerConfig
+	Postgres PostgresConfig
 	//Redis    RedisConfig
 	//MongoDB  MongoDB
 	//Cookie   Cookie
@@ -50,7 +50,7 @@ type PostgresConfig struct {
 	PostgresqlUser     string
 	PostgresqlPassword string
 	PostgresqlDbname   string
-	PostgresqlSSLMode  bool
+	PostgresqlSSLMode  string // enabled, disabled
 	PgDriver           string
 }
 
