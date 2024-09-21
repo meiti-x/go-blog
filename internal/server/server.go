@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
 	"github.com/meiti-x/go-blog/config"
+	"log"
 	"net/http"
 )
 
@@ -35,7 +36,7 @@ func (s *Server) Run() error {
 
 	err := r.Run(s.server.Port)
 	if err != nil {
-		return err
+		log.Fatal(err)
 	}
 
 	fmt.Println("Server started on port " + "http://127.0.0.1" + s.server.Port)

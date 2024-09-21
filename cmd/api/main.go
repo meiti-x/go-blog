@@ -31,7 +31,14 @@ func Execute() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer db.Close()
+
+	// wrap the db.close in a function for handling errors and not silently passed
+	defer func(db *sqlx.DB) {
+		err := db.Close()
+		if err != nil {
+			log.Fatal(err)
+		}
+	}(db)
 
 	if err := db.Ping(); err != nil {
 		log.Fatal(err)
