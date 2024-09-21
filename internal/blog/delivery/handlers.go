@@ -1,9 +1,9 @@
 package delivery
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
+	models "github.com/meiti-x/go-blog/internal/_models"
 	"github.com/meiti-x/go-blog/internal/blog"
 )
 
@@ -21,25 +21,20 @@ func NewBlogsHandlers(db *sqlx.DB, uc blog.UseCase) blog.Handlers {
 
 func (h newsHandlers) Create() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		var newBlog struct {
-			Title   string `json:"title" binding:"required"`
-			Content string `json:"content" binding:"required"`
-		}
+		var item *models.Posts
 
-		if err := c.ShouldBindJSON(&newBlog); err != nil {
+		if err := c.ShouldBindJSON(&item); err != nil {
 			c.JSON(400, gin.H{"error": err.Error()})
 			return
 		}
 
-		fmt.Println(newBlog)
-		query := `INSERT INTO blogs (title, content) VALUES ($1, $2)`
-		_, err := h.db.Exec(query, newBlog.Title, newBlog.Content)
+		item, err := h.uc.Create(c, item)
 		if err != nil {
-			c.JSON(500, gin.H{"error": err})
+			c.JSON(400, gin.H{"error": err.Error()})
 			return
 		}
 
-		c.JSON(201, gin.H{"message": "Blog created successfully"})
+		c.JSON(201, gin.H{"data": item})
 	}
 }
 

@@ -8,16 +8,16 @@ import (
 )
 
 // News UseCase
-type newsUC struct {
+type BlogUC struct {
 	cfg      *config.Config
 	blogRepo blog.Repository
 }
 
 // News UseCase constructor
-func NewBlogUseCase(cfg *config.Config, newsRepo blog.Repository) blog.UseCase {
-	return &newsUC{cfg: cfg, blogRepo: newsRepo}
+func NewBlogUseCase(cfg *config.Config, blogRepo blog.Repository) *BlogUC {
+	return &BlogUC{cfg: cfg, blogRepo: blogRepo}
 }
 
-func (uc *newsUC) Create(ctx context.Context, blog *models.Posts) (*models.Posts, error) {
-
+func (uc *BlogUC) Create(ctx context.Context, blog *models.Posts) (*models.Posts, error) {
+	return uc.blogRepo.Create(ctx, blog)
 }
