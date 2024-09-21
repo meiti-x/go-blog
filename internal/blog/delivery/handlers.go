@@ -9,11 +9,13 @@ import (
 
 type newsHandlers struct {
 	db *sqlx.DB
+	uc blog.UseCase
 }
 
-func NewBlogsHandlers(db *sqlx.DB) blog.Handlers {
+func NewBlogsHandlers(db *sqlx.DB, uc blog.UseCase) blog.Handlers {
 	return &newsHandlers{
 		db: db,
+		uc: uc,
 	}
 }
 
