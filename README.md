@@ -2,6 +2,10 @@
 2. **Set Up Clean Folder Structure**
    1. add usecase and repository after using postgresql
 3. **Connect to PostgreSQL & Implement CRUD**
+   1. handle post
+   2. handle get
+   3. handle get all
+   4. handle delete
 4. **Add Configuration Management with Viper**
 5. **Add Validation to Requests**
 6. **Add Logging with Logrus**

@@ -1,7 +1,9 @@
 package main
 
-import "github.com/meiti-x/go-blog/cmd"
+import (
+	"github.com/meiti-x/go-blog/cmd/api"
+)
 
 func main() {
-	cmd.Execute()
+	api.Execute()
 }

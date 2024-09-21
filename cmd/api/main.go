@@ -1,4 +1,4 @@
-package cmd
+package api
 
 import (
 	"fmt"
@@ -40,6 +40,9 @@ func Execute() {
 	}
 
 	// create server
-	s := server.NewServer(cfg)
-	s.Run()
+	s := server.NewServer(cfg, db)
+	err = s.Run()
+	if err != nil {
+		return
+	}
 }
